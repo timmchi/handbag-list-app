@@ -24,56 +24,82 @@
             text-decoration: none;
             color: black;
         }
+
+        .descr {
+            font-family: 'Gambetta';
+            font-weight: bold;
+            
+        }
+
+        .x1 {
+            font-family: 'Gambetta';
+            font-weight: lighter;
+            font-size: 300%;
+            padding-bottom: 0px;
+        }
+        
+        .col-md-12 {
+            padding-top: 20px;
+            padding-bottom: 0px;
+        }
+
+        .m-5 {
+            padding-top: 0px;
+        }
+
+
+
     </style>
 
 
 </head>
-<body class="m-5">
-    
+<!-- <body class="m-5"> -->
+<body>
+    <div class="col-md-12">
+        <h1 class="x1 text-center fw-light">FAIRY BUBBLE</h1>
+    </div>
+    <div class="m-5">
+        <!-- <div class="container"> -->
+            <div class="row">
+                <div class="col-md-2">
 
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3">
-
-                <div class="card">
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">
-                            <a href="{% url 'gallery' %}">Все</a>
-                        </li>
-                        {% for category in categories %}
-                        <li class="list-group-item">
-                            <a href="{% url 'gallery' %}?category={{category.name}}">{{category.name}}</a>
-                        </li>
-                        {% endfor %}
+                    <div class="card">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <a href="{% url 'gallery' %}">Все</a>
+                            </li>
+                            {% for category in categories %}
+                            <li class="list-group-item">
+                                <a href="{% url 'gallery' %}?category={{category.name}}">{{category.name}}</a>
+                            </li>
+                            {% endfor %}
+                            
+                            <a href="{% url 'add' %}" class="btn btn-block btn-dark btn-sm m-1">Добавить сумку</a>
                         
-                        <a href="{% url 'add' %}" class="btn btn-block btn-dark btn-sm m-1">Добавить сумку</a>
-                      
-                    </ul>
-                  </div>
-
-            </div>
-            <div class="col-md-9">
-                <div class="row">
-                {% for bag in handbag_list %}
-                    <div class="col-md-4">
-                        <div class="card my-2">
-                            <img class="image-thumbnail" src={{bag.image1.url}} alt="Card image cap">
-                            <div class="card-body">
-                              <p class="card-text text-center">{{bag.description}}</p>
-                              <!-- <small>Категория: {{bag.category.name}}</small> -->
-                            </div>
-                            <a href="{% url 'photo' bag.id %}"class="stretched-link"></a>
-                            <!-- <a href="{% url 'photo' bag.id %}"class="btn btn-outline-dark btn-sm m-1">Открыть</a> -->
-                        </div>
+                        </ul>
                     </div>
-                {% empty %}
-                <h3>Здесь ничего нет... :(</h3>
-                {% endfor %}    
-                    
 
                 </div>
+                <div class="col-md-10">
+                    <div class="row">
+                    {% for bag in handbag_list %}
+                        <div class="col-md-4">
+                            <div class="card my-2">
+                                <img class="image-thumbnail" src={{bag.image1.url}} alt="Card image cap">
+                                <div class="card-body">
+                                <p class="card-text text-center descr">{{bag.description}}</p>
+                                </div>
+                                <a href="{% url 'photo' bag.id %}"class="stretched-link"></a>
+                            </div>
+                        </div>
+                    {% empty %}
+                    <h3>Здесь ничего нет... :(</h3>
+                    {% endfor %}    
+                        
+
+                    </div>
+                </div>
             </div>
-        </div>
     </div>
 </body>
 </html>
