@@ -24,7 +24,7 @@
         }
 
         .description {
-            padding: 15% 0 0 200px; /* Adjust padding as needed */
+            padding: 15% 0 0 200px; 
             font-family: 'Gambetta';
         }
     </style>
@@ -70,7 +70,10 @@
                 <p>{{handbag.bio}}</p>
                 <p>{{handbag.price}}</p>
                 <a href="https://t.me/ssmotritsskaya"class="btn btn-dark my-3">Телеграм</a>
-                
+                {% if user.is_staff %}
+                    <a href="{% url 'delete_handbag' handbag.id %}" class="btn btn-block btn-dark btn-sm m-1">Удалить</a>
+                    <a href="{% url 'update_handbag' handbag.id %}" class="btn btn-block btn-dark btn-sm m-1">Обновить</a>
+                {% endif %}
             </div>
         </div>
     </div>

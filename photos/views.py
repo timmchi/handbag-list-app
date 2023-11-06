@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Handbag, Category
 from django.views import generic, View
-from django.views.generic.edit import CreateView, DeleteView
+from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.views.generic import DetailView
 from django.urls import reverse_lazy
 
@@ -37,3 +37,12 @@ class HandbagCreate(LoginRequiredMixin, CreateView):
 
 class HandbagDetailView(DetailView):
     model = Handbag
+
+class HandbagDeleteView(DeleteView):
+    model = Handbag
+    success_url = reverse_lazy('gallery')
+
+class HandbagUpdateView(UpdateView):
+    model = Handbag
+    fields = '__all__'
+    success_url = reverse_lazy('gallery')
