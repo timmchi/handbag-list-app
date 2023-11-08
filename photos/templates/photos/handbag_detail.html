@@ -71,8 +71,8 @@
                 <p>{{handbag.price}}</p>
                 <a href="https://t.me/ssmotritsskaya"class="btn btn-dark my-3">Телеграм</a>
                 {% if user.is_staff %}
-                    <a href="{% url 'delete_handbag' handbag.id %}"><i class="fa fa-trash"></i></a>
-                    <a href="{% url 'update_handbag' handbag.id %}"><i class="fa fa-pencil"></i></a>
+                    <a href="{% url 'delete_handbag' handbag.id %}" class="btn btn-block btn-dark btn-sm m-1">Удалить</a>
+                    <a href="{% url 'update_handbag' handbag.id %}" class="btn btn-block btn-dark btn-sm m-1">Обновить</a>
                 {% endif %}
             </div>
         </div>
