@@ -1,27 +1,31 @@
 # Handbag "Store"
 
-Brief project description and its purpose.
+This is a site that serves as a listing of different handmade products. 
 
 ## Table of Contents
 - [Getting Started](#getting-started)
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Contributing](#contributing)
 - [License](#license)
 - [Acknowledgements](#acknowledgements)
 
 ## Getting Started
 
-Explain what the project is about and what it does. Provide a high-level overview.
+The project is a website made with django. It is something between an e-commerce site and a gallery - not exactly just simple pictures with not much else, but not a store either, as implementing the payment system and login options were not required.
+There is functionality to add, update and delete items, provided you have admin privileges, and also views them. Pretty much a simple CRUD app made mostly with generic views. 
 
 ## Prerequisites
 
-List any software, libraries, or tools that need to be installed before the project can be used. Include versions if necessary.
+Latest version of python and django are required. 
+
+AWS S3 buckets are used to store static files, so you would need to configur those and set environment variables accordingly. 
+The app could also be configured to not use aws services and save the files in your static folder instead. This can be achieved with a relatively few lines of code in settings.py.
 
 ## Installation
 
 Step-by-step guide on how to install and set up the project.
+WIP
 
 ## Acknowledgements
 
